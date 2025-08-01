@@ -1,5 +1,3 @@
-# wonderstacked/wonderstacked/README.md
-
 # My Next.js App
 
 This is a Next.js application that utilizes ShadCN for component styling, Cypress for end-to-end testing, and Docker for containerization.
