@@ -62,6 +62,57 @@ To run the application in a Docker container, use the following command:
 docker-compose up --build
 ```
 
+### 📁 Project Directory Structure
+
+```txt
+.
+├── .husky/                     # Git hooks (e.g., pre-commit)
+├── public/                     # Static assets (images, SVGs, etc.)
+│   └── ...
+├── src/                        # All source code lives here
+│   ├── app/                    # Next.js 13+ routing (App Router)
+│   │   ├── layout.tsx          # Global layout
+│   │   ├── page.tsx            # Root page
+│   │   └── (routes)/           # Route folders (e.g., /about, /dashboard)
+│   ├── components/             # Reusable UI components
+│   │   └── ui/                 # Design system primitives
+│   ├── features/               # Feature-specific logic (modular structure)
+│   │   └── auth/               # Example: auth feature
+│   │       ├── AuthForm.tsx
+│   │       └── auth.api.ts
+│   ├── lib/                    # Utilities, configs, constants
+│   │   ├── utils.ts
+│   │   └── constants.ts
+│   ├── styles/                 # Global CSS, Tailwind, variables, themes
+│   │   ├── globals.css
+│   │   └── theme.css
+│   ├── middleware.ts           # Optional Next.js middleware
+│   └── types/                  # Global TypeScript declarations
+│       └── index.d.ts
+├── cypress/                    # Cypress E2E tests
+│   ├── e2e/
+│   ├── fixtures/
+│   └── support/
+├── docker/                     # Docker/Nginx related configs
+│   └── nginx.conf
+├── logs/                       # Runtime logs (ignored in Git)
+├── .dockerignore
+├── .editorconfig
+├── .eslintrc.js
+├── .gitignore
+├── .prettierrc
+├── .prettierignore
+├── components.json             # Optional: shadcn or Storybook metadata
+├── docker-compose.yml
+├── Dockerfile
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── tsconfig.json
+├── README.md
+└── LICENSE
+```
+
 ### Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
