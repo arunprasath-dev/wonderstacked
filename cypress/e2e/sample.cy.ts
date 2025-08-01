@@ -1,4 +1,4 @@
-import { test, expect } from 'cypress';
+import { expect, test } from 'cypress';
 
 test('Sample End-to-End Test', () => {
   // Visit the home page
