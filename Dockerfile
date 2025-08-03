@@ -1,4 +1,4 @@
-FROM node:16 AS builder
+FROM node:22 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Production image
-FROM node:16 AS production
+FROM node:22 AS production
 
 # Set the working directory
 WORKDIR /app
@@ -27,11 +27,14 @@ COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/package-lock.json ./
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/app ./app
-COPY --from=builder /app/lib ./lib
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/.next ./.next
+
+# Remove prepare script to avoid husky error in production
+RUN npm pkg delete scripts.prepare
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 # Expose the port the app runs on
 EXPOSE 3000
