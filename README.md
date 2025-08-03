@@ -127,9 +127,7 @@ docker compose -f docker-compose.yml build --no-cache
 └── LICENSE
 ```
 
-### Best Practices
-
-## Logging
+### Logging Best Practices
 
 - Static by default - Better performance and SEO
 - Dynamic when needed - User-specific content, real-time data
