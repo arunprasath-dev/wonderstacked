@@ -19,7 +19,7 @@ Make sure you have the following installed:
 
    ```bash
    git clone <repository-url>
-   cd wonderstacked
+   cd wonderstacked_playground
    ```
 
 2. Install the dependencies:
@@ -58,8 +58,22 @@ npm run build
 
 To run the application in a Docker container, use the following command:
 
+For production:
+
 ```bash
-docker-compose up --build
+docker-compose up --build -d
+```
+
+For development with hot reloading:
+
+```bash
+docker-compose -f docker-compose.dev.yml up --build -d
+```
+
+For force rebuild without cache
+
+```bash
+docker compose -f docker-compose.yml build --no-cache
 ```
 
 ### 📁 Project Directory Structure
@@ -112,6 +126,16 @@ docker-compose up --build
 ├── README.md
 └── LICENSE
 ```
+
+### Best Practices
+
+## Logging
+
+- Static by default - Better performance and SEO
+- Dynamic when needed - User-specific content, real-time data
+- Client-side analytics - For tracking page views on static pages
+- API routes - For server-side logging without affecting page rendering
+- Structured logging - Include context like user ID, session, etc.
 
 ### Resources
 

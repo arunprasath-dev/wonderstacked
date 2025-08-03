@@ -1,8 +1,18 @@
 import Image from 'next/image';
 
+import ClientAnalytics from '../components/ClientAnalytics';
+import logger from '../lib/logger';
+
+// Remove force-dynamic for static pages
+// export const dynamic = 'force-dynamic';
+
 export default function Home() {
+  // For static pages, log during build time
+  logger.info('Home page built/rendered');
+
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
+      <ClientAnalytics page="home" />
       <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
         <Image
           className="dark:invert"
@@ -46,6 +56,22 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Read our docs
+          </a>
+        </div>
+
+        {/* Internal Navigation */}
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <a
+            className="flex h-10 w-full items-center justify-center rounded-full border border-solid border-blue-500 bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-600 sm:h-12 sm:w-auto sm:px-5 sm:text-base md:w-[158px]"
+            href="/dashboard"
+          >
+            📊 Dashboard
+          </a>
+          <a
+            className="flex h-10 w-full items-center justify-center rounded-full border border-solid border-green-500 bg-green-500 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 sm:h-12 sm:w-auto sm:px-5 sm:text-base md:w-[158px]"
+            href="/blog"
+          >
+            📝 Blog
           </a>
         </div>
       </main>

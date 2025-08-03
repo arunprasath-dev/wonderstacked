@@ -1,13 +1,17 @@
+name: wonderstacked-prod
+
 services:
   web:
+    container_name: wonderstacked_playground_web_prod
     build:
       context: .
       dockerfile: Dockerfile
+    image: wonderstacked_playground:latest
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=production
     labels:
-      app.name: wonderstacked
+      app.name: wonderstacked_playground
       app.env: production
     restart: unless-stopped

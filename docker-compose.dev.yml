@@ -1,8 +1,12 @@
+name: wonderstacked-dev
+
 services:
   web:
+    container_name: wonderstacked_playground_web_dev
     build:
       context: .
       dockerfile: Dockerfile.dev
+    image: wonderstacked_playground:dev
     ports:
       - '3000:3000'
     volumes:
@@ -11,7 +15,6 @@ services:
     environment:
       - NODE_ENV=development
     labels:
-      app.name: wonderstacked
+      app.name: wonderstacked_playground
       app.env: development
-    command: npm run dev
     restart: unless-stopped
